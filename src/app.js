@@ -11,6 +11,7 @@ const app = express();
 // importar rutas
 
 const customerRoutes = require('./routes/customer.js');
+const { urlencoded } = require('express');
 
 // settings
 
@@ -27,6 +28,8 @@ app.use(myConnection(mysql, {
     port:3306,
     database:'crudnodejsmysql'
 }, 'single'));
+
+app.use(express.urlencoded({extended: false}));
 
 // routes
 
